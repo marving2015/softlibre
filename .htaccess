@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /sitio1/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /sitio1/index.php/$1 [L]
+    ErrorDocument 404 /sitio1/index.php
+
+<ifModule mod_headers.c>
+    Header set Connection keep-alive
+</ifModule>
